@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetVegetable</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="all.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+        <a class="navbar-brand" href="#"><img src="./image/logo.jpg" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link ml-6 active" href="#">商品列表 <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link ml-5" href="#">店家起源</a>
+                <a class="nav-item nav-link ml-5" href="#">關於我們</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link mr-3" href="#">註冊</a>
+                <a class="nav-item nav-link mr-3" href="#">登入</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid my-5">
+        <h2 class="pt-5 pb-3 text-center mb-5">商品列表</h2>
+        <div class="row">
+            <div class="col-md-2 mb-2">
+                <div class="list-group sticky-top text-center category">
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary active">全部商品</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">蔬菜水果</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">活凍海鮮</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">健康肉品</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">調味專區</a>
+                </div>
+            </div>
+            <div class="col-md-10">
+
+                <div id="app" class="card-columns">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light p-5">
+        <p class="text-center">無商業用途，僅供學習使用</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="all.js"></script>
+</body>
+
+</html>
