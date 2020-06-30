@@ -17,6 +17,9 @@
                     vm.render();
                     vm.eventListener();
                 })
+                .catch(err => {
+                    console.log('Error', err);
+                })
         },
         getCategory: function () {
             let products = this.data.products;
