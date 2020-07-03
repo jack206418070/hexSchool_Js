@@ -1,5 +1,4 @@
-; (function () {
-    var obj = {
+     var obj = {
         data: {
             uuid: '4bf3ed9e-2f96-4927-8d03-2cc23ae42f7c',
             products: [],
@@ -9,7 +8,6 @@
         getData: function () {
             const vm = this;
             const url = `${vm.apiPath}api/${this.data.uuid}/ec/products`;
-
             axios.get(url)
                 .then(res => {
                     vm.data.products = res.data.data;
@@ -71,6 +69,7 @@
                     ${categoryData.categoryName} ( ${categoryData.products.length} )</a>`;
             })
             categoryList.innerHTML = str2;
+            // document.querySelector('.loading-background').style="display: none !important;";
         },
         eventListener: function () {
             const categoryList = document.querySelector('.category')
@@ -85,4 +84,3 @@
         }
     }
     obj.getData();
-})();

@@ -33,3 +33,15 @@ img{
     transform: translate(0, -5px);
     transition-delay: 0s !important;
 }
+
+
+.loading-background
+{
+    z-index: 9999;
+    background-color: rgba(238, 238, 238, 0.5);
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
