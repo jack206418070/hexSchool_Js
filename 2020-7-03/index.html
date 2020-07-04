@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
@@ -57,18 +58,18 @@
                   <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal('edit', product)">
                     編輯
                   </button>
-                  <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('delete', product)">
+                  <button type="button" class="btn btn-outline-danger btn-sm"  @click="openModal('delete', product)">
                     刪除
                   </button>
-                  <button type="button" class="btn btn-outline-success btn-sm">
-                      評價
+                  <button type="button" class="btn btn-outline-success btn-sm" @click="openModal('commet', product.options)">
+                    評價
                   </button>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
-        <!-- Modal -->
+        <!-- update/add  Modal -->
         <div id="productModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
           <div class="modal-dialog modal-xl" role="document">
@@ -160,6 +161,9 @@
             </div>
           </div>
         </div>
+
+
+        <!-- delmodalju -->
         <div id="delProductModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -187,6 +191,56 @@
             </div>
           </div>
         </div>
+
+
+        <!-- feeback modal -->
+        <div id="commetProductModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" v-if="tempComment !== undefined">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                      產品評論
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                            <div :style="comment.id == tempComment.id ? 'display:block;' : 'display:none' " v-for="(comment, key) in tempProduct.comments" :key="comment.id">
+                                <i class="material-icons" v-for="star in comment.stars">star</i>
+                                <div class="d-flex flex-column flex-md-row justify-content-center align-items-start">
+                                <span class="pr-5 mt-2 d-md-block d-none" style="font-family: Helvetica Neue; font-size: 64px;"  @click="preComment">＜</span>
+                                <p class="pt-md-4 text-left comment-text-overflow">{{ comment.comment }}</p>
+                                <span class="pl-5 mt-2 d-md-block d-none" style="font-family: Helvetica Neue; font-size: 64px;"  @click="nextComment">＞</span>
+                                </div>
+                                <p class="m-0 p-0 d-flex justify-content-md-center justify-content-end">— {{ comment.name }} —</p>
+                            </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" @click="deleteMessage(tempComment.id)">Delete message</button>
+                </div>
+              </div>
+
+
+              <div class="modal-content" v-else>
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                      產品評論
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-danger ">抱歉本商品沒有任何評論</p>    
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
