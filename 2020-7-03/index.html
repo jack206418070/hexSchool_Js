@@ -151,10 +151,10 @@
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
                   取消
                 </button>
-                <button type="button" class="btn btn-primary" v-if="modalType === 'add'" @click="addProduct">
+                <button type="button" class="btn btn-primary" v-if="modalType === 'add'" @click="handelProduct(modalType)">
                     確認
                 </button>
-                <button type="button" class="btn btn-primary" v-else @click="editProduct">
+                <button type="button" class="btn btn-primary" v-else @click="handelProduct(modalType)">
                   確認
                 </button>
               </div>

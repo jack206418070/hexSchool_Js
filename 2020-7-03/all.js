@@ -93,21 +93,20 @@ const app = new Vue({
                 break;
             }
         },
-        addProduct(){
-            this.tempProduct.id = new Date().getDate();
-            this.products.push(this.tempProduct);
-            this.tempProduct = {};
-            $('#productModal').modal('hide');
-        },
-        editProduct(){
-            const id = this.tempProduct.id;
-            this.products.forEach((product, index) => {
-                console.log(id, product.id, index);
-                if(product.id === id){
-                    this.products[index] = this.tempProduct;
-                }
-            })
-            this.tempProduct = {};
+        handelProduct(type){
+            if(type === 'add'){
+                this.tempProduct.id = new Date().getDate();
+                this.products.push(this.tempProduct);
+                this.tempProduct = {};
+            }else if(type === 'edit'){
+                const id = this.tempProduct.id;
+                this.products.forEach((product, index) => {
+                    if(product.id === id){
+                        this.products[index] = this.tempProduct;
+                    }
+                })
+                this.tempProduct = {};
+            }
             $('#productModal').modal('hide');
         },
         deleteProduct(id){
