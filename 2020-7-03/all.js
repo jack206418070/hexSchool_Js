@@ -71,6 +71,7 @@ let app = new Vue({
             this.modalType = type;
             switch(type){
                 case 'add':
+                    this.tempProduct = {};
                     $('#productModal').modal('show');
                 break;
 
