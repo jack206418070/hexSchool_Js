@@ -119,21 +119,16 @@ let app = new Vue({
             this.tempProduct = {};
             $('#delProductModal').modal('hide');
         },
-        nextComment(){
-            if(this.tempPos === this.tempProduct.comments.length -1){
-                this.tempPos = 0
+
+        changeComment(direction){
+            let comments = this.tempProduct.comments;
+            if(direction === 'next'){
+                this.tempPos === comments.length -1 ? this.tempPos = 0 : this.tempPos += 1;
+                this.tempComment = comments[this.tempPos];
             }else{
-                this.tempPos += 1;
+                this.tempPos === 0 ? this.tempPos = comments.length -1 : this.tempPos -= 1;
+                this.tempComment = comments[this.tempPos];
             }
-            this.tempComment = this.tempProduct.comments[this.tempPos];
-        },
-        preComment(){
-            if(this.tempPos === 0) {
-                this.tempPos = this.tempProduct.comments.length -1
-            }else{
-                this.tempPos -= 1;
-            }
-            this.tempComment = this.tempProduct.comments[this.tempPos];
         },
         deleteMessage(id){
             this.tempProduct.comments.forEach((item, index) => {
@@ -142,7 +137,6 @@ let app = new Vue({
                 }
             })
             this.tempComment = this.tempProduct.comments[0];
-        }
-        
+        },
     },
 }) 

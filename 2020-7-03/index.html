@@ -209,9 +209,9 @@
                             <div :style="comment.id == tempComment.id ? 'display:block;' : 'display:none' " v-for="(comment, key) in tempProduct.comments" :key="comment.id">
                                 <i class="material-icons" v-for="star in comment.stars">star</i>
                                 <div class="d-flex flex-column flex-md-row justify-content-center align-items-start">
-                                <span class="pr-5 mt-2 d-md-block d-none" style="font-family: Helvetica Neue; font-size: 64px;"  @click="preComment">＜</span>
+                                <span class="pr-5 mt-2 d-md-block d-none" style="font-family: Helvetica Neue; font-size: 32px;"  @click="changeComment('pre')">＜</span>
                                 <p class="pt-md-4 text-left comment-text-overflow">{{ comment.comment }}</p>
-                                <span class="pl-5 mt-2 d-md-block d-none" style="font-family: Helvetica Neue; font-size: 64px;"  @click="nextComment">＞</span>
+                                <span class="pl-5 mt-2 d-md-block d-none" style="font-family: Helvetica Neue; font-size: 32px;"  @click="changeComment('next')">＞</span>
                                 </div>
                                 <p class="m-0 p-0 d-flex justify-content-md-center justify-content-end">— {{ comment.name }} —</p>
                             </div>
