@@ -13,6 +13,7 @@ const app = new Vue({
                 origin_price: 580,
                 price: 480,
                 unit: '盒',
+                commetStars: 3,
                 options: {
                     comments: [
                         {
@@ -41,6 +42,7 @@ const app = new Vue({
                 origin_price: 40,
                 price: 20,
                 unit: '把',
+                commetStars: 3,
                 options: {
                     comments: [
                         {
